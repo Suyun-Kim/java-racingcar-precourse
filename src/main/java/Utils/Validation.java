@@ -12,7 +12,7 @@ public class Validation {
 
     }
 
-    public static boolean checkCountLength(int count) {
+    public static boolean checkCountRange(int count) {
         return count >= MIN_COUNT_LENGTH && count <= MAX_COUNT_LENGTH;
     }
 }
