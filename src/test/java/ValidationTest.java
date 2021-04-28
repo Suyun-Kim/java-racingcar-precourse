@@ -12,7 +12,7 @@ public class ValidationTest {
     }
 
     @Test
-    void 숫자_1자리수_테스트() {
+    void 숫자_범위_테스트() {
         assertThat(Validation.checkCountLength(1)).isTrue();
         assertThat(Validation.checkCountLength(9)).isTrue();
         assertThat(Validation.checkCountLength(10)).isFalse();
