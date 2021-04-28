@@ -6,9 +6,17 @@ public class ValidationTest {
 
     @Test
     void 자동차이름_5자_이내_테스트() {
-        assertThat(Validation.checkLength(5)).isTrue();
-        assertThat(Validation.checkLength(6)).isFalse();
+        assertThat(Validation.checkNameLength(5)).isTrue();
+        assertThat(Validation.checkNameLength(6)).isFalse();
 
+    }
+
+    @Test
+    void 숫자_1자리수_테스트() {
+        assertThat(Validation.checkCountLength(1)).isTrue();
+        assertThat(Validation.checkCountLength(9)).isTrue();
+        assertThat(Validation.checkCountLength(10)).isFalse();
+        assertThat(Validation.checkCountLength(0)).isFalse();
     }
 
 }
