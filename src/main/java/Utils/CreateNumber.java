@@ -6,6 +6,6 @@ public class CreateNumber {
     private static final int MAX_NUM = 9;
 
     public static int generateRandomNumber() {
-        return  (int) (Math.random() * (MAX_NUM - MIN_NUM) + MAX_NUM);
+        return  (int) (Math.random() * (MAX_NUM - MIN_NUM) + MIN_NUM);
     }
 }
