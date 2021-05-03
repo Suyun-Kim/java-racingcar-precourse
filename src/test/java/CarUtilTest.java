@@ -12,8 +12,7 @@ public class CarUtilTest {
 
     @BeforeEach
     void setUp() {
-        car = new Car();
-        car.setCarName("싼타페");
+        car = new Car("싼타페");
         car.setMoveStatus(MoveStatus.MOVE);
     }
 

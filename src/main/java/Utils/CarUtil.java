@@ -3,6 +3,7 @@ package Utils;
 import car.Car;
 import enums.MoveStatus;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -12,8 +13,18 @@ public class CarUtil {
     private static final String DIVISION_TEXT = ",";
     private static final int STOP_NUMBER = 4;
 
-    public static List<String> divideByCommas(String names) {
-        return Arrays.asList(names.split(DIVISION_TEXT));
+    private static List<Car> cars;
+
+    public static List<Car> divideByCommas(String names) {
+        cars = new ArrayList<Car>();
+
+        String[] arrayNames = names.split(DIVISION_TEXT);
+
+        for(String name : arrayNames) {
+            cars.add(new Car("name"));
+        };
+
+        return cars;
     }
 
     public static MoveStatus changeCarStatus(int randomNumber) {

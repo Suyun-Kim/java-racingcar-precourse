@@ -7,14 +7,15 @@ import java.util.List;
 
 public class Car {
 
-    private List<Car> cars;
-
     private String carName;
-
     private int moveCount;
-
     private MoveStatus moveStatus;
 
+    public Car(String carName) {
+        this.carName = carName;
+        this.moveCount = 0;
+
+    }
 
     public void setCarName(String carName) {
         this.ValidationCarName(carName);
