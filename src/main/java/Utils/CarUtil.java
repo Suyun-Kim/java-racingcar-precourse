@@ -21,7 +21,7 @@ public class CarUtil {
         String[] arrayNames = names.split(DIVISION_TEXT);
 
         for(String name : arrayNames) {
-            cars.add(new Car("name"));
+            cars.add(new Car(name));
         };
 
         return cars;
@@ -54,5 +54,13 @@ public class CarUtil {
 
         return sc.nextInt();
 
+    }
+
+    public static String inputCarNames() {
+        System.out.println("자동차 명을 입력해주세요.");
+
+        Scanner sc = new Scanner(System.in);
+
+        return sc.next();
     }
 }
