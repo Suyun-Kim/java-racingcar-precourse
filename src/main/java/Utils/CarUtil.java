@@ -1,5 +1,6 @@
 package Utils;
 
+import car.Car;
 import enums.MoveStatus;
 
 import java.util.Arrays;
@@ -21,4 +22,16 @@ public class CarUtil {
         }
         return MoveStatus.MOVE;
     }
+
+    public static int addMoveCount(Car car) {
+        MoveStatus moveStatus = car.getMoveStatus();
+        int moveCount = car.getMoveCount();
+
+        if(moveStatus.equals(MoveStatus.MOVE)) {
+            car.setMoveCount(moveCount+1);
+            return car.getMoveCount();
+        }
+        return 0;
+    }
+
 }

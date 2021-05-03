@@ -1,10 +1,21 @@
 import Utils.CarUtil;
+import car.Car;
 import enums.MoveStatus;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CarUtilTest {
+
+    private static Car car;
+
+    @BeforeEach
+    void setUp() {
+        car = new Car();
+        car.setCarName("싼타페");
+        car.setMoveStatus(MoveStatus.MOVE);
+    }
 
     @Test
     void 문자열_쉼표_구분_배열_반환_테스트() {
@@ -23,6 +34,11 @@ public class CarUtilTest {
         assertThat(CarUtil.changeCarStatus(7)).isEqualTo(MoveStatus.MOVE);
         assertThat(CarUtil.changeCarStatus(8)).isEqualTo(MoveStatus.MOVE);
         assertThat(CarUtil.changeCarStatus(9)).isEqualTo(MoveStatus.MOVE);
+    }
+
+    @Test
+    void 자동차_전진_카운트_테스트() {
+        assertThat(CarUtil.addMoveCount(car)).isEqualTo(1);
     }
 
 
