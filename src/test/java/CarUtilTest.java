@@ -1,5 +1,5 @@
 import Utils.CarUtil;
-import car.Car;
+import vo.Car;
 import enums.MoveStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

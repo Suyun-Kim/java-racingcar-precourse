@@ -1,10 +1,9 @@
 package Utils;
 
-import car.Car;
+import vo.Car;
 import enums.MoveStatus;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 

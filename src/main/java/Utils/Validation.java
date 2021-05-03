@@ -1,5 +1,7 @@
 package Utils;
 
+import vo.Car;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,15 +21,15 @@ public class Validation {
 
     }
 
-    public static boolean checkDuplicate(List<String> carNames) {
+    public static boolean checkDuplicate(List<Car> carNames) {
 
         List<String> temp = new ArrayList<>();
 
-        for(String carName : carNames) {
-            if(temp.contains(carName)) {
+        for(Car car : carNames) {
+            if(temp.contains(car.getCarName())) {
                 return false;
             }
-            temp.add(carName);
+            temp.add(car.getCarName());
         }
 
         return true;

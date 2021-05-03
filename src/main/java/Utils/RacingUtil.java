@@ -1,7 +1,6 @@
 package Utils;
 
-import car.Car;
-import com.sun.xml.internal.ws.util.StringUtils;
+import vo.Car;
 import enums.MoveStatus;
 
 import java.util.List;

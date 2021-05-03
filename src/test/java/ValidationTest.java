@@ -1,5 +1,7 @@
 import Utils.Validation;
 import static org.assertj.core.api.Assertions.assertThat;
+
+import vo.Car;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -9,15 +11,13 @@ import java.util.List;
 
 public class ValidationTest {
 
-    private List<String> carNames;
+    private List<Car> cars;
 
     @BeforeEach
     void setUp() {
-        carNames = new ArrayList<>();
-        carNames.add("싼타페");
-        carNames.add("쏘나타");
-        carNames.add("투싼");
-        carNames.add("K5");
+        cars = new ArrayList<>();
+        cars.add(new Car("싼타페"));
+        cars.add(new Car("쏘나타"));
     }
 
 
@@ -30,7 +30,7 @@ public class ValidationTest {
 
     @Test
     void 자동차이름_중복_테스트() {
-        assertThat(Validation.checkDuplicate(carNames)).isTrue();
+        assertThat(Validation.checkDuplicate(cars)).isTrue();
     }
 
     @Test

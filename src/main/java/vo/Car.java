@@ -1,4 +1,4 @@
-package car;
+package vo;
 
 import Utils.Validation;
 import enums.MoveStatus;
@@ -44,13 +44,12 @@ public class Car {
     private void validationCarName(String carName) {
         int carNameLength = carName.length();
 
-        if (!Validation.checkIsEmptyCarName(carName)) {
+        if(!Validation.checkIsEmptyCarName(carName)) {
             throw new IllegalArgumentException("자동차 명은 필수로 입력해야 합니다.");
         }
-        if (!Validation.checkNameLength(carNameLength)) {
+        if(!Validation.checkNameLength(carNameLength)) {
             throw new IllegalArgumentException("자동차 명은 5자 이상을 넘길 수 없습니다.");
         }
-
     }
 
 }
