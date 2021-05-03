@@ -52,9 +52,16 @@ public class RacingUtilTest {
 
     @Test
     void 게임_우승상태_체크_테스트() {
-        int maxMoveCount = RacingUtil.getMaxMoveCount(cars);
-        int moveCount = car.getMoveCount();
-        assertThat(RacingUtil.setVictoryStatus(moveCount, maxMoveCount)).isEqualTo(MoveStatus.NON_VICTORY);
+        assertThat(RacingUtil.setVictoryStatus(cars, 3).get(0).getMoveStatus()).isEqualTo(MoveStatus.NON_VICTORY);
+        assertThat(RacingUtil.setVictoryStatus(cars, 3).get(1).getMoveStatus()).isEqualTo(MoveStatus.VICTORY);
+        assertThat(RacingUtil.setVictoryStatus(cars, 3).get(2).getMoveStatus()).isEqualTo(MoveStatus.VICTORY);
+        assertThat(RacingUtil.setVictoryStatus(cars, 3).get(3).getMoveStatus()).isEqualTo(MoveStatus.NON_VICTORY);
+    }
+
+    @Test
+    void 경기_결과_출력_테스트() {
+        cars = RacingUtil.setVictoryStatus(cars, 3);
+        assertThat(RacingUtil.printGameResult(cars)).isEqualTo("쏘나타,K5가 최종 우승했습니다.");
     }
 
 

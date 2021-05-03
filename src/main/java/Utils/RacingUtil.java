@@ -1,14 +1,16 @@
 package Utils;
 
 import car.Car;
+import com.sun.xml.internal.ws.util.StringUtils;
 import enums.MoveStatus;
 
-import java.util.Collections;
 import java.util.List;
 
 public class RacingUtil {
 
     private static StringBuilder moveText;
+    private static StringBuilder resultText;
+
 
     public static String printOutGame(Car car) {
         moveText = new StringBuilder(car.getCarName());
@@ -18,8 +20,23 @@ public class RacingUtil {
         for(int i = 0; i < car.getMoveCount(); i++) {
             moveText.append("-");
         }
+
         return moveText.toString();
 
+    }
+
+    public static String printGameResult(List<Car> cars) {
+        resultText = new StringBuilder();
+        for(Car car : cars) {
+            if(car.getMoveStatus().equals(MoveStatus.VICTORY)) {
+                resultText.append(car.getCarName());
+                resultText.append(",");
+            }
+        }
+
+        resultText.append("가 최종 우승했습니다.");
+
+        return resultText.deleteCharAt(resultText.lastIndexOf(",")).toString();
     }
 
     public static int getMaxMoveCount(List<Car> cars) {
@@ -27,11 +44,16 @@ public class RacingUtil {
         return temp;
     }
 
-    public static MoveStatus setVictoryStatus(int moveCount, int maxMoveCount) {
+    public static List<Car> setVictoryStatus(List<Car> cars, int maxMoveCount) {
+        cars.forEach(car -> {
+            if(car.getMoveCount() == maxMoveCount) {
+                car.setMoveStatus(MoveStatus.VICTORY);
+            }
+            if(car.getMoveCount() != maxMoveCount) {
+                car.setMoveStatus(MoveStatus.NON_VICTORY);
+            }
+        });
 
-        if(moveCount == maxMoveCount) {
-            return MoveStatus.VICTORY;
-        }
-        return MoveStatus.NON_VICTORY;
+        return cars;
     }
 }
