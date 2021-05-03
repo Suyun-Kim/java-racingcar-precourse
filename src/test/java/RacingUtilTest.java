@@ -1,5 +1,6 @@
 import Utils.RacingUtil;
 import car.Car;
+import enums.MoveStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -20,14 +21,41 @@ public class RacingUtilTest {
     @BeforeEach
     void setUp() {
         car = new Car("싼타페");
-        car.setMoveCount(2);
+        car.setMoveCount(3);
+    }
+
+    @BeforeEach
+    void setCars() {
+        String[] carNames = {"싼타페", "쏘나타", "K5", "아이오닉"};
+        Integer[] moveCounts = {1, 3, 3, 2};
+
+        cars = new ArrayList<Car>();
+
+        for(int i=0; i < carNames.length; i++) {
+            car = new Car(carNames[i]);
+            car.setMoveCount(moveCounts[i]);
+
+            cars.add(car);
+        }
+
     }
 
     @Test
     void 각_횟수마다_전진_출력_테스트() {
-        assertThat(RacingUtil.printOutGame(car)).isEqualTo("싼타페 : --");
+        assertThat(RacingUtil.printOutGame(car)).isEqualTo("싼타페 : ---");
     }
 
+    @Test
+    void 최대_전진_횟수_출력_테스트() {
+        assertThat(RacingUtil.getMaxMoveCount(cars)).isEqualTo(3);
+    }
+
+    @Test
+    void 게임_우승상태_체크_테스트() {
+        int maxMoveCount = RacingUtil.getMaxMoveCount(cars);
+        int moveCount = car.getMoveCount();
+        assertThat(RacingUtil.setVictoryStatus(moveCount, maxMoveCount)).isEqualTo(MoveStatus.NON_VICTORY);
+    }
 
 
 
